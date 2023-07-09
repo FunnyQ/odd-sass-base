@@ -31,12 +31,11 @@
  *Text-level semantics
  *====================
 /* A elements that don't have a class get default styles */
-a:not([class])
+:where(a:not([class]))
   text-decoration-skip-ink: auto
 
 /* Make images easier to work with */
-img,
-picture
+:where(img, picture)
   max-width: 100%
   display: block
 
