@@ -1,0 +1,14 @@
+@use 'sass:map'
+
+$colorMap: ()
+
+=add-color($name, $value)
+  $colorMap: map.set($colorMap, $name, $value) !global
+
+@function use-color($name)
+  @return map.get($colorMap, $name)
+
++add-color('black', hsl(0, 0%, 0%))
++add-color('white', hsl(0, 0%, 100%))
+
+

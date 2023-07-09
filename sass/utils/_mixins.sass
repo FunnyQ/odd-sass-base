@@ -1,0 +1,100 @@
+@use 'open-props' as *
+@use '../abstracts' as *
+
+=clearfix
+  &::after
+    clear: both
+    content: ""
+    display: block
+
+=render-props-at-root
+  +open-props
+    @each $name, $value in $colorMap
+      --c-#{$name}: #{use-color($name)}
+    @each $name, $value in $fontSizeMap
+      --fz-#{$name}: #{use-font-size($name)}
+    @each $name, $value in $fontWeightMap
+      --fw-#{$name}: #{use-font-weight($name)}
+    @each $name, $value in $spaceSizeMap
+      --s-#{$name}: #{use-space-size($name)}
+    @each $name, $value in $layerMap
+      --layer-#{$name}: #{use-layer($name)}
+    @content
+
+=debug($global: '')
+  outline: 1px solid greenyellow
+  > *
+    outline: 1px solid mediumvioletred
+
+// media queries for screen size
+=from($screen-size)
+  @media screen and (width > $screen-size)
+    @content
+=start-from($screen-size)
+  @media screen and (width >= $screen-size)
+    @content
+=until($screen-size)
+  @media screen and (width < $screen-size)
+    @content
+=between($start-screen-size, $end-screen-size)
+  @media screen and ( $start-screen-size <= width < $end-screen-size )
+    @content
+
+// media queries for hi-res screen
+=retina
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)
+    @content
+
+=is-flex($vc: '', $hc: '')
+  display: flex
+  @if $vc == 'vc'
+    align-items: center
+  @if $hc == 'hc'
+    justify-content: center
+
+=is-grid($auto-flow-direction: '')
+  display: grid
+  @if $auto-flow-direction != ''
+    grid-auto-flow: $auto-flow-direction
+
+=is-clickable
+  cursor: pointer
+
+=is-circle($size)
+  width: $size
+  aspect-ratio: 1
+  border-radius: $size
+  overflow: hidden
+
+=is-pill($width, $height)
+  @if $width != '' or $width != null
+    width: $width
+  height: $height
+  border-radius: $height
+
+=is-overlay($offset)
+  position: absolute
+  inset: $offset
+
+=has-currency-symbol
+  &::before
+    content: attr(data-currency)
+    display: inline-block
+    margin-right: .25em
+
+=has-transition($duration: .3s, $properties: all)
+  transition: $duration $properties
+
+=has-lines-limit($line-count: 3, $line-height: '')
+  display: -webkit-box
+  -webkit-line-clamp: $line-count
+  -webkit-box-orient: vertical
+  overflow: hidden
+  @if $line-height != ''
+    line-height: $line-height
+
+=shadow-border($width, $color)
+  box-shadow: 0 0 0 $width $color
+
+=use-font($f-family)
+  font-family: $f-family

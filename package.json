@@ -1,0 +1,17 @@
+{
+  "name": "odd-sass-base",
+  "private": true,
+  "version": "0.1.0",
+  "main": "./sass/_index.sass",
+  "style": "./sass/_index.sass",
+  "files": [
+    "sass"
+  ],
+  "scripts": {
+    "dev": "sass --watch --update sass"
+  },
+  "devDependencies": {
+    "sass": "^1.63.6"
+  },
+  "packageManager": "yarn@3.6.1"
+}

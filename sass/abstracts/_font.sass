@@ -1,0 +1,50 @@
+@use 'sass:map'
+
+$fontSizeMap: ()
+$fontWeightMap: ()
+
+=add-font-size($name, $value)
+  $fontSizeMap: map.set($fontSizeMap, $name, $value) !global
+=add-font-weight($name, $value)
+  $fontWeightMap: map.set($fontWeightMap, $name, $value) !global
+
+@function use-font-size($name)
+  @return map.get($fontSizeMap, $name)
+@function use-font-weight($name)
+  @return map.get($fontWeightMap, $name)
+
++add-font-size('7', 3.5rem)
++add-font-size('6', 3rem)
++add-font-size('5', 2.5rem)
++add-font-size('4', 2rem)
++add-font-size('3', 1.5rem)
++add-font-size('2', 1.25rem)
++add-font-size('1', 1rem)
++add-font-size('0', .875rem)
++add-font-size('00', .75rem)
++add-font-size('000', .5rem)
+
++add-font-size('small', use-font-size('00'))
++add-font-size('normal', use-font-size('00'))
++add-font-size('large', use-font-size('6'))
+
++add-font-weight('1', 100)
++add-font-weight('2', 200)
++add-font-weight('3', 300)
++add-font-weight('4', 400)
++add-font-weight('5', 500)
++add-font-weight('6', 600)
++add-font-weight('7', 700)
++add-font-weight('8', 800)
++add-font-weight('9', 900)
+
++add-font-weight('thin', use-font-weight('1'))
++add-font-weight('extralight', use-font-weight('2'))
++add-font-weight('light', use-font-weight('3'))
++add-font-weight('normal', use-font-weight('4'))
++add-font-weight('medium', use-font-weight('5'))
++add-font-weight('semibold', use-font-weight('6'))
++add-font-weight('bold', use-font-weight('7'))
++add-font-weight('extrabold', use-font-weight('8'))
++add-font-weight('black', use-font-weight('9'))
+

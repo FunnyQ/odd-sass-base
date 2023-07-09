@@ -1,0 +1,146 @@
+/* Base on:
+/* modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize
+/* and
+/* modern-css-reset v1.4.0 | MIT License | https://github.com/Andy-set-studio/modern-css-reset
+
+:where(*, *::before, *::after)
+  box-sizing: border-box
+
+:where(html)
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'
+  // [*] use 1.5 as default line-height
+  line-height: 1.5
+  -webkit-text-size-adjust: 100%
+  &:focus-within
+    scroll-behavior: smooth
+
+/*
+ *Sections
+ *========
+:where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd)
+  margin: 0
+:where(body)
+  min-height: 100dvh
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+:where(ul[role="list"], ol[role="list"])
+  list-style: none
+
+
+/*
+ *Text-level semantics
+ *====================
+/* A elements that don't have a class get default styles */
+a:not([class])
+  text-decoration-skip-ink: auto
+
+/* Make images easier to work with */
+img,
+picture
+  max-width: 100%
+  display: block
+
+/**
+ *Add the correct text decoration in Chrome, Edge, and Safari.
+:where(abbr[title])
+  text-decoration: underline dotted
+
+/**
+ *Add the correct font weight in Edge and Safari.
+:where(b, strong)
+  font-weight: bolder
+
+/**
+ *1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+ *2. Correct the odd 'em' font sizing in all browsers.
+:where(code, kbd, samp, pre)
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace
+  font-size: 1em
+
+/**
+ *Add the correct font size in all browsers.
+:where(small)
+  font-size: 80%
+
+/**
+ *Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+:where(sub, sup)
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+:where(sub)
+  bottom: -0.1em
+:where(sup)
+  top: -0.1em
+
+/*
+ *Tabular data
+ *============
+
+/**
+ *1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+ *2. Correct table border color inheritance in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+:where(table)
+  text-indent: 0
+  border-color: inherit
+
+/*
+ *Forms
+ *=====
+
+/**
+ *1. Change the font styles in all browsers.
+ *2. Remove the margin in Firefox and Safari.
+:where(button, input, optgroup, select, textarea)
+  font: inherit
+  margin: 0
+
+/**
+ *Remove the inheritance of text transform in Edge and Firefox.
+:where(button, select)
+  text-transform: none
+
+/**
+ *Correct the inability to style clickable types in iOS and Safari.
+:where(button, [type='button'], [type='reset'], [type='submit'])
+  -webkit-appearance: button
+
+/**
+ *Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+:where(legend)
+  padding: 0
+
+/**
+ *Correct the cursor style of increment and decrement buttons in Safari.
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button
+  height: auto
+
+/**
+ *1. Correct the odd appearance in Chrome and Safari.
+ *2. Correct the outline style in Safari.
+:where([type='search'])
+  -webkit-appearance: textfield
+  outline-offset: -2px
+
+/**
+ *Remove the inner padding in Chrome and Safari on macOS.
+\::-webkit-search-decoration
+  -webkit-appearance: none
+
+/**
+ *1. Correct the inability to style clickable types in iOS and Safari.
+ *2. Change font properties to 'inherit' in Safari.
+\::-webkit-file-upload-button
+  -webkit-appearance: button
+  font: inherit
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce)
+  :where(html:focus-within)
+    scroll-behavior: auto
+  :where(*, *::before, *::after)
+    animation-duration: 0.01ms !important
+    animation-iteration-count: 1 !important
+    transition-duration: 0.01ms !important
+    scroll-behavior: auto !important

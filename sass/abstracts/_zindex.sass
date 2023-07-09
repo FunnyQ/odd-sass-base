@@ -1,0 +1,33 @@
+@use 'sass:map'
+
+$layerMap: ()
+
+=add-layer($name, $value)
+  $layerMap: map.set($layerMap, $name, $value) !global
+
+@function use-layer($name)
+  @return map.get($layerMap, $name)
+
++add-layer('00', -1)
++add-layer('0', 0)
++add-layer('1', 10)
++add-layer('2', 20)
++add-layer('3', 30)
++add-layer('4', 40)
++add-layer('5', 50)
++add-layer('6', 60)
++add-layer('7', 70)
++add-layer('8', 80)
++add-layer('9', 90)
++add-layer('10', 100)
+
++add-layer('hidden', use-layer('00'))
++add-layer('base', use-layer('0'))
++add-layer('bg', use-layer('1'))
++add-layer('fg', use-layer('2'))
++add-layer('overlay', use-layer('3'))
++add-layer('modal', use-layer('4'))
++add-layer('popover', use-layer('5'))
++add-layer('tooltip', use-layer('6'))
++add-layer('notification', use-layer('7'))
++add-layer('always-on-top', 2147483647)
